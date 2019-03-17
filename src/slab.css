@@ -1,0 +1,22 @@
+@font-face {
+  font-family: "Bebas-Neue";
+  src: url("./BebasNeue-Regular.woff2") format("woff2");
+}
+
+.slabtexted .slabtext {
+  display: -moz-inline-box;
+  display: inline-block;
+  white-space: nowrap;
+}
+.slabtextinactive .slabtext {
+  display: inline;
+  white-space: normal;
+  font-size: 1em !important;
+  letter-spacing: inherit !important;
+  word-spacing: inherit !important;
+  *letter-spacing: normal !important;
+  *word-spacing: normal !important;
+}
+.slabtextdone .slabtext {
+  display: block;
+}

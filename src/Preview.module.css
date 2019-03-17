@@ -1,0 +1,8 @@
+.container {
+  font-family: Bebas-Neue, sans-serif;
+  text-transform: uppercase;
+  border: 1px solid salmon;
+  width: 384px;
+  min-height: 300px;
+  font-size: 50px;
+}
