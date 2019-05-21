@@ -1,0 +1,16 @@
+.Button {
+  display: inline-block;
+
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+
+  color: white;
+  background-color: lightskyblue;
+  box-shadow: -0.3rem 0.3rem lightslategray;
+
+  text-decoration: none;
+}
+
+.Button:active {
+  box-shadow: -0.1rem 0.1rem lightslategray;
+}
