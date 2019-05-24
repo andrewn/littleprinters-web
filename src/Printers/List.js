@@ -4,14 +4,14 @@ import { Link } from "@reach/router";
 import { Button, HeaderValues } from "../shared";
 import Printer from "./components/Printer";
 
+import styles from "./List.module.css";
+
 export default function List({ state: { printers }, dispatch }) {
   return (
-    <div>
+    <div className={styles.List}>
       <HeaderValues title="Little Printers" />
 
-      <Button to="add">Add</Button>
-
-      <ul className="no-list">
+      <ul className={`no-list`}>
         {Object.entries(printers).map(function([id, printer]) {
           return (
             <li key={id}>
@@ -20,6 +20,10 @@ export default function List({ state: { printers }, dispatch }) {
           );
         })}
       </ul>
+
+      <div className={styles.Add}>
+        <Button to="add">Add a printer</Button>
+      </div>
     </div>
   );
 }

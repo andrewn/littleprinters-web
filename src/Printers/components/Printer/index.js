@@ -22,7 +22,9 @@ export default function Printer({ id, name, owner, status }) {
       </div>
 
       <div className={styles.message}>
-        <Button to={`${id}/messages`}>Message</Button>
+        <Button to={`${id}/messages`} type={Button.Types.Primary}>
+          Message
+        </Button>
       </div>
 
       <div className={styles.image}>

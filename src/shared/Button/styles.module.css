@@ -4,13 +4,26 @@
   padding: 0.5rem 1rem;
   cursor: pointer;
 
-  color: white;
-  background-color: lightskyblue;
-  box-shadow: -0.3rem 0.3rem lightslategray;
-
   text-decoration: none;
 }
 
-.Button:active {
-  box-shadow: -0.1rem 0.1rem lightslategray;
+.Primary {
+  color: #fff;
+  background-color: #89befe;
+  box-shadow: -0.3rem 0.3rem #4277af;
+}
+
+.Primary:active {
+  box-shadow: -0.1rem 0.1rem #4277af;
+}
+
+.Secondary {
+  color: #000;
+  background-color: #fff;
+  border: 2px solid #000;
+  box-shadow: -0.3rem 0.3rem #000;
+}
+
+.Secondary:active {
+  box-shadow: -0.1rem 0.1rem #000;
 }

@@ -1,0 +1,13 @@
+.List {
+  display: flex;
+  flex-direction: column;
+}
+
+.Add {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 76px;
+  padding: 76px 0;
+  border-top: 2px dashed #000;
+}
