@@ -1,0 +1,63 @@
+.Printer {
+  display: grid;
+  max-height: 210px;
+  grid-template-columns: 30% 1fr 1fr 47px;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "image info info detail" "image info info ." "image . message message";
+
+  background-image: linear-gradient(-180deg, #fbfbfb 0%, #f1f1f1 100%);
+
+  box-shadow: 3px 12px 0 -6px #cecece;
+}
+
+.image {
+  grid-area: image;
+  margin: 32px 58px 28px 43px;
+  align-self: center;
+  justify-self: center;
+}
+
+.image img {
+  width: 100%;
+  /* height: 100%; */
+}
+
+.info {
+  grid-area: info;
+  padding-top: 28px;
+}
+
+.info > * {
+  margin: 0;
+  padding: 0;
+}
+
+.detail {
+  grid-area: detail;
+  align-self: start;
+  justify-self: right;
+}
+
+.detailButton {
+  display: block;
+  width: 47px;
+  height: 47px;
+  margin: 14px;
+}
+
+.detailButton img {
+  width: 100%;
+  height: 100%;
+}
+
+.message {
+  grid-area: message;
+
+  position: relative;
+  top: 10px;
+
+  padding-right: 30px;
+
+  align-self: end;
+  justify-self: right;
+}

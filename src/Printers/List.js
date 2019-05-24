@@ -2,6 +2,7 @@ import * as React from "react";
 import { Link } from "@reach/router";
 
 import { Button, HeaderValues } from "../shared";
+import Printer from "./components/Printer";
 
 export default function List({ state: { printers }, dispatch }) {
   return (
@@ -10,18 +11,11 @@ export default function List({ state: { printers }, dispatch }) {
 
       <Button to="add">Add</Button>
 
-      <ul>
-        {Object.entries(printers).map(function([id, { name, owner, status }]) {
+      <ul className="no-list">
+        {Object.entries(printers).map(function([id, printer]) {
           return (
             <li key={id}>
-              <h2 title={id}>{name}</h2>
-              <p>Owner: {owner}</p>
-              <p>Status: {status}</p>
-
-              <Button to={id}>Detail</Button>
-              <br />
-              <br />
-              <Button to={`${id}/messages`}>Message</Button>
+              <Printer id={id} {...printer} />
             </li>
           );
         })}
