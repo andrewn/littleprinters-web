@@ -15,7 +15,7 @@ function NotFound() {
 export default ({ dispatch, state }) => {
   return (
     <Router>
-      {/* <Redirect from="/" to="printers" /> */}
+      <Redirect from="/" to="printers" noThrow />
 
       <Printers.default path="printers">
         <Printers.List path="/" state={state} dispatch={dispatch} />
@@ -23,8 +23,12 @@ export default ({ dispatch, state }) => {
         <Printers.Add path="add" state={state} dispatch={dispatch} />
 
         <Messages.default path=":printerId/messages">
-          <Messages.SelectType default />
-          <Messages.Compose path=":messageType" />
+          <Messages.SelectType default state={state} dispatch={dispatch} />
+          <Messages.Compose
+            path=":messageType"
+            state={state}
+            dispatch={dispatch}
+          />
         </Messages.default>
       </Printers.default>
 

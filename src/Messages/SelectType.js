@@ -1,12 +1,12 @@
 import * as React from "react";
 import { Link } from "@reach/router";
 
-import { Button } from "../shared";
+import { Button, HeaderValues } from "../shared";
 
 export default function SelectType() {
   return (
     <div>
-      <h1>What kind of message?</h1>
+      <HeaderValues title="New message" />
 
       <ul>
         <li>

@@ -1,12 +1,12 @@
 import * as React from "react";
 import { Link } from "@reach/router";
 
-import { Button } from "../shared";
+import { Button, HeaderValues } from "../shared";
 
 export default function List({ state: { printers }, dispatch }) {
   return (
     <div>
-      <h1>Printers list</h1>
+      <HeaderValues title="Little Printers" />
 
       <Button to="add">Add</Button>
 

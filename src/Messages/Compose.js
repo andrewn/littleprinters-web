@@ -1,10 +1,16 @@
 import * as React from "react";
-import { Link } from "@reach/router";
 
-export default function Compose({ messageType }) {
+import { HeaderValues } from "../shared";
+import { getPrinterById } from "../reducer";
+
+export default function Compose({ state, printerId, messageType }) {
+  console.log("compose", state, printerId);
+  const printer = getPrinterById(state, printerId);
+  console.log("printer", printer);
+
   return (
     <div>
-      <h1>Compose a new {messageType}</h1>
+      <HeaderValues title={printer.name} />
     </div>
   );
 }

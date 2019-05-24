@@ -1,4 +1,5 @@
 import { useEffect, useReducer, useState } from "react";
+import { getDeviceInfo } from "./actions";
 
 /*
   Shape:
@@ -56,6 +57,10 @@ function reducer(state, action) {
   }
 }
 
+export function getPrinterById(state, id) {
+  return state.printers[id];
+}
+
 export default function createReducer() {
   const [isLoading, setIsLoading] = useState(true);
   const [state, dispatch] = useReducer(reducer, emptyState);
@@ -66,6 +71,11 @@ export default function createReducer() {
         const data = JSON.parse(localStorage.getItem("little-printers"));
         dispatch({ type: "hydrate", state: data });
         setIsLoading(false);
+
+        // TODO: This shouldn't go here
+        const printKeys = Object.entries(data.printKeys);
+        console.log("Fetching status for printKeys", printKeys);
+        printKeys.forEach(([id, { url }]) => getDeviceInfo(dispatch, id, url));
       } else {
         const serialised = JSON.stringify(state);
         console.log("persist state", serialised);
@@ -75,5 +85,5 @@ export default function createReducer() {
     [state]
   );
 
-  return [state, dispatch];
+  return [{ ...state, isLoading }, dispatch];
 }

@@ -1,25 +1,47 @@
 import React, { useEffect, useReducer } from "react";
+import { isRedirect } from "@reach/router";
 
 import createReducer from "./reducer";
 import * as actions from "./actions";
 
+import { Header, HeaderProvider, Splash } from "./shared";
+
 import Preview from "./Preview";
 import Routes from "./Routes";
+
+import "./global.css";
+
+class ErrorCatcher extends React.Component {
+  componentDidCatch(error) {
+    if (isRedirect(error)) {
+      throw error;
+    } else {
+      // do whatever you were going to do
+    }
+  }
+
+  render() {
+    return this.props.children;
+  }
+}
 
 function App() {
   const [state, dispatch] = createReducer();
 
-  useEffect(function() {
-    const printKeys = Object.keys(state.printKeys);
-    console.log("Fetching status for printKeys", printKeys);
-    printKeys.forEach(key => actions.getDeviceInfo(dispatch, key));
-  }, []);
+  if (state.isLoading) {
+    return <Splash />;
+  }
 
   return (
-    <div>
-      <code>{JSON.stringify(state, null, 2)}</code>
-      <Routes state={state} dispatch={dispatch} />
-    </div>
+    <HeaderProvider>
+      <ErrorCatcher>
+        <div>
+          <code>{JSON.stringify(state, null, 2)}</code>
+          <Header />
+          <Routes state={state} dispatch={dispatch} />
+        </div>
+      </ErrorCatcher>
+    </HeaderProvider>
   );
 
   // const [message, setMessage] = useState("This is a message!");
