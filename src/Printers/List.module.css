@@ -1,6 +1,8 @@
 .List {
   display: flex;
   flex-direction: column;
+
+  padding: 18px;
 }
 
 .Add {
@@ -9,5 +11,5 @@
 
   margin-top: 76px;
   padding: 76px 0;
-  border-top: 2px dashed #000;
+  border-top: 6px dotted #000;
 }
