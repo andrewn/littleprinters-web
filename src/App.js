@@ -35,8 +35,10 @@ function App() {
   return (
     <HeaderProvider>
       <ErrorCatcher>
-        <div>
-          <code>{JSON.stringify(state, null, 2)}</code>
+        <div className="with-background is-stretched">
+          <code style={{ position: "fixed", bottom: 0, right: 0 }}>
+            {JSON.stringify(state, null, 2)}
+          </code>
           <Header />
           <Routes state={state} dispatch={dispatch} />
         </div>

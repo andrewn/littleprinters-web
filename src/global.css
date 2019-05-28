@@ -1,6 +1,9 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+  margin: 0;
+  padding: 0;
 }
 
 .no-list {
@@ -8,6 +11,12 @@ body {
   padding: 0;
 }
 
-/* .no-list > li {
-  padding: 0;
-} */
+.with-background {
+  background-image: url("./receipt@3x.png");
+  background-repeat: repeat;
+  background-size: 17px 17px;
+}
+
+.is-stretched {
+  min-height: 100vh;
+}
