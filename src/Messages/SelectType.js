@@ -3,31 +3,23 @@ import { Link } from "@reach/router";
 
 import { Button, HeaderValues } from "../shared";
 
+import Type from "./components/Type";
+
 export default function SelectType() {
   return (
     <div>
       <HeaderValues title="New message" />
-
-      <ul>
+      <ul className="no-list">
         <li>
-          <Link to="poster-font">
-            <h2>Poster font</h2>
-            <Button>Use</Button>
-          </Link>
+          <Type type="poster-font" />
         </li>
 
         <li>
-          <Link to="dithergram">
-            <h2>#dithergram</h2>
-            <Button>Use</Button>
-          </Link>
+          <Type type="dithergram" />
         </li>
 
         <li>
-          <Link to="quick-draw">
-            <h2>Quick draw</h2>
-            <Button>Use</Button>
-          </Link>
+          <Type type="quick-draw" />
         </li>
       </ul>
     </div>
