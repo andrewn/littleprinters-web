@@ -3,6 +3,9 @@
   grid-template-columns: repeat(4, 1fr);
   grid-template-areas: "left title title right";
   align-items: center;
+
+  background: #fff;
+  border-bottom: 6px solid #000;
 }
 
 .left {
