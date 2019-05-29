@@ -11,7 +11,7 @@ export default function Compose({ state, printerId, messageType }) {
   return (
     <div>
       <HeaderValues title={printer.name} />
-      <PosterFont />
+      <PosterFont onSend={console.log.bind(null, "> ")} />
     </div>
   );
 }

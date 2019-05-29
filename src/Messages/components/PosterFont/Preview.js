@@ -8,8 +8,10 @@ export default React.forwardRef(function Preview({ text }, ref) {
   });
 
   return (
-    <div ref={ref} className={styles.container}>
-      {text}
+    <div className={styles.container}>
+      <div ref={ref} className={styles.inner}>
+        {text}
+      </div>
     </div>
   );
 });

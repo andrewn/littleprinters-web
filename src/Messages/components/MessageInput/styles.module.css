@@ -1,0 +1,30 @@
+.MessageInput {
+  display: flex;
+  align-items: center;
+
+  height: 43px;
+  padding-left: 20px;
+  padding-right: 6px;
+
+  border: 1px solid #000;
+  border-radius: 43px;
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+
+  border: none;
+  background: transparent;
+
+  font-size: 1.5rem;
+}
+
+.send {
+  width: 35px;
+  height: 35px;
+
+  border-color: transparent;
+  border-radius: 100%;
+  background: #89befe;
+}
