@@ -32,3 +32,8 @@ export async function getDeviceInfo(dispatch, id, url) {
   console.log("getDeviceInfo", printer);
   dispatch({ type: "status", id, printer });
 }
+
+export async function sendImageToPrinter(dispatch, printer, image) {
+  console.log("sendImageToPrinter", printer, image);
+  // dispatch({ type: "sending", printer });
+}

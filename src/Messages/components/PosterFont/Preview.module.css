@@ -1,14 +1,15 @@
 .container {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  text-align: center;
 
   width: 320px;
   min-height: 300px;
 
   margin: 0 auto;
-
-  font-family: Bebas-Neue, sans-serif;
-  text-transform: uppercase;
-  font-size: 50px;
+  padding: 20px 0;
 
   background: url("./reciept-paper@1x.png") no-repeat bottom center;
 }
@@ -27,4 +28,10 @@
 
 .inner {
   padding: 0 15px;
+}
+
+.slabText {
+  font-family: Bebas-Neue, sans-serif;
+  text-transform: uppercase;
+  font-size: 50px;
 }
