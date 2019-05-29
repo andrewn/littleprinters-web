@@ -9,7 +9,7 @@ export default function Printer({ disabled, type }) {
     <Link
       className={`${styles.Type} ${disabled ? styles.isDisabled : ""}`}
       data-message-type={type}
-      to={`${type}/messages`}
+      to={`${type}`}
     >
       <div className={styles.image} />
       <div className={styles.button}>
