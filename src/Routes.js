@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link, Redirect, Router } from "@reach/router";
+import { Redirect, Router } from "@reach/router";
 
 import * as Messages from "./Messages";
 import * as Printers from "./Printers";

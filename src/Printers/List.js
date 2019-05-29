@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Link } from "@reach/router";
 
 import { Button, HeaderValues } from "../shared";
 import Printer from "./components/Printer";
