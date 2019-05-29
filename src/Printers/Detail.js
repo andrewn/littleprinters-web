@@ -1,5 +1,6 @@
 import * as React from "react";
-import { Link } from "@reach/router";
+
+import { HeaderValues } from "../shared";
 
 function getPrinter(state, printerId) {
   return state.printers.find(({ id }) => (id = printerId));
@@ -10,6 +11,7 @@ export default function Detail({ state, dispatch, printerId }) {
 
   return (
     <div>
+      <HeaderValues hasBack />
       <h1>Detail</h1>
 
       <p>{printer.name}</p>

@@ -15,7 +15,7 @@ export default function Compose({ dispatch, state, printerId, messageType }) {
 
   return (
     <div>
-      <HeaderValues title={printer.name} />
+      <HeaderValues title={printer.name} hasBack />
       <PosterFont onSend={handleSend} owner={printer.owner} />
     </div>
   );

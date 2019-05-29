@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link, history } from "@reach/router";
 
 import styles from "./styles.module.css";
 
@@ -18,10 +19,10 @@ export function HeaderValues(props) {
   );
 }
 
-export function HeaderValuesInner({ setHeader, title }) {
+export function HeaderValuesInner({ setHeader, hasBack, title }) {
   React.useEffect(() => {
-    setHeader({ title });
-  }, [title]);
+    setHeader({ hasBack, title });
+  }, [hasBack, title]);
 
   return null;
 }
@@ -43,7 +44,14 @@ export default function Header() {
       {({ title, hasBack }) => {
         return (
           <nav className={styles.Header}>
-            {hasBack && <div className={styles.left}>←</div>}
+            {hasBack && (
+              <button
+                className={`${styles.button} ${styles.left}`}
+                onClick={() => window.history.back()}
+              >
+                ←
+              </button>
+            )}
             <h1 className={styles.title}>{title}</h1>
           </nav>
         );

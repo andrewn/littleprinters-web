@@ -1,14 +1,14 @@
 import * as React from "react";
-import { Link } from "@reach/router";
 
-import { Button, HeaderValues } from "../shared";
+import { HeaderValues } from "../shared";
 
 import Type from "./components/Type";
 
-export default function SelectType() {
+export default function SelectType({ backTo }) {
   return (
     <div>
-      <HeaderValues title="New message" />
+      <HeaderValues title="New message" hasBack />
+
       <ul className="no-list">
         <li>
           <Type type="poster-font" />

@@ -1,10 +1,9 @@
 import * as React from "react";
-import { Link } from "@reach/router";
 
-import { Button } from "../shared";
+import { Button, HeaderValues } from "../shared";
 import { addPrinter } from "../actions";
 
-export default function Add({ dispatch }) {
+export default function Add({ dispatch, backTo }) {
   const [printKey, setPrintKey] = React.useState("");
   const canSubmit = printKey !== "";
 
@@ -15,6 +14,7 @@ export default function Add({ dispatch }) {
 
   return (
     <div>
+      <HeaderValues hasBack />
       <h1>Add</h1>
 
       <form onSubmit={handleSubmit} disabled={!canSubmit}>

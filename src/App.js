@@ -1,10 +1,9 @@
-import React, { useEffect, useReducer } from "react";
+import React from "react";
 import { isRedirect } from "@reach/router";
 
 import createReducer from "./reducer";
-import * as actions from "./actions";
 
-import { Header, HeaderProvider, Splash } from "./shared";
+import { HeaderProvider, Splash } from "./shared";
 
 import Routes from "./Routes";
 
@@ -38,7 +37,6 @@ function App() {
           <code style={{ position: "fixed", bottom: 0, right: 0 }}>
             {JSON.stringify(state, null, 2)}
           </code>
-          <Header />
           <Routes state={state} dispatch={dispatch} />
         </div>
       </ErrorCatcher>
