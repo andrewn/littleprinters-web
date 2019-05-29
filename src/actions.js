@@ -35,5 +35,12 @@ export async function getDeviceInfo(dispatch, id, url) {
 
 export async function sendImageToPrinter(dispatch, printer, image) {
   console.log("sendImageToPrinter", printer, image);
-  // dispatch({ type: "sending", printer });
+  dispatch({ type: "sending", printer, image });
+  try {
+    await api.sendImage({ image, url: printer.url });
+    dispatch({ type: "success", printer, image });
+  } catch (err) {
+    console.error(err);
+    dispatch({ type: "failure", printer, image });
+  }
 }

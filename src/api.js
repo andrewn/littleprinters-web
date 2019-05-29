@@ -1,36 +1,38 @@
-const http = fetch; //(...params) => console.log("HTTP", ...params);
+const http = fetch;
+// const http = (...params) => console.log("HTTP", ...params);
 
-const nord = {
-  printKey: "w6lswcvvn7icytjfdn46",
-  apiBase: "https://littleprinter.nordprojects.co"
-};
+// const nord = {
+//   printKey: "w6lswcvvn7icytjfdn46",
+//   apiBase: "https://littleprinter.nordprojects.co"
+// };
 
-const local = {
-  printKey: "s9njt909j6fbth8wkudb",
-  apiBase: "http://localhost:5000"
-};
+// // eslint-disable-next-line no-unused-vars
+// const local = {
+//   printKey: "s9njt909j6fbth8wkudb",
+//   apiBase: "http://localhost:5000"
+// };
 
-const config = nord;
+// const config = nord;
 
-function url() {
-  return `${config.apiBase}/printkey/${config.printKey}?from=thingy`;
-}
+// function url() {
+//   return `${config.apiBase}/printkey/${config.printKey}?from=thingy`;
+// }
 
-function sendHtml(html) {
-  http(url(), {
-    method: "POST",
-    mode: "cors",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      html
-    })
-  });
-}
+// function sendHtml(html) {
+//   http(url(), {
+//     method: "POST",
+//     mode: "cors",
+//     headers: {
+//       "Content-Type": "application/json"
+//     },
+//     body: JSON.stringify({
+//       html
+//     })
+//   });
+// }
 
-function sendImage(image) {
-  http(url(), {
+export function sendImage({ url, image }) {
+  http(url, {
     method: "POST",
     mode: "cors",
     headers: {

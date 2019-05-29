@@ -19,10 +19,13 @@ import { getDeviceInfo } from "./actions";
         "owner": "andrewn"
       }
     }
+
+    networkState: "dormant" | "sending" | "failed"
 */
 const emptyState = {
   printKeys: {},
-  printers: {}
+  printers: {},
+  networkState: "dormant"
 };
 
 function reducer(state, action) {
@@ -52,13 +55,25 @@ function reducer(state, action) {
           [action.id]: action.printer
         }
       };
+    case "sending":
+      return {
+        ...state,
+        networkState: "sending"
+      };
+    case "success":
+    case "failed":
+      return {
+        ...state,
+        networkState: "dormant"
+      };
     default:
+      console.warn("Unhandled action", action);
       throw new Error();
   }
 }
 
 export function getPrinterById(state, id) {
-  return state.printers[id];
+  return { ...state.printers[id], ...state.printKeys[id] };
 }
 
 export default function createReducer() {
@@ -80,8 +95,12 @@ export default function createReducer() {
         console.log("Fetching status for printKeys", printKeys);
         printKeys.forEach(([id, { url }]) => getDeviceInfo(dispatch, id, url));
       } else {
-        const serialised = JSON.stringify(state);
+        const copied = { ...state };
+        delete copied.networkState;
+
+        const serialised = JSON.stringify(copied);
         console.log("persist state", serialised);
+
         localStorage.setItem("little-printers", serialised);
       }
     },
