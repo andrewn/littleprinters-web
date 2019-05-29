@@ -8,6 +8,11 @@
   margin-bottom: 35px;
 }
 
+.isDisabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 .Type .image {
   content: " ";
   display: block;
@@ -36,6 +41,34 @@
 
 .Type[data-message-type="poster-font"] .image {
   background-image: url("./message-poster.png");
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+  .Type[data-message-type="dithergram"] .image {
+    background-image: url("./message-dithergram@2x.png");
+  }
+
+  .Type[data-message-type="quick-draw"] .image {
+    background-image: url("./message-quick-draw@2x.png");
+  }
+
+  .Type[data-message-type="poster-font"] .image {
+    background-image: url("./message-poster@2x.png");
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 3) {
+  .Type[data-message-type="dithergram"] .image {
+    background-image: url("./message-dithergram@3x.png");
+  }
+
+  .Type[data-message-type="quick-draw"] .image {
+    background-image: url("./message-quick-draw@3x.png");
+  }
+
+  .Type[data-message-type="poster-font"] .image {
+    background-image: url("./message-poster@3x.png");
+  }
 }
 
 .Type .button {

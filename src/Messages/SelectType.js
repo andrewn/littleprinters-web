@@ -15,11 +15,11 @@ export default function SelectType() {
         </li>
 
         <li>
-          <Type type="dithergram" />
+          <Type type="dithergram" disabled />
         </li>
 
         <li>
-          <Type type="quick-draw" />
+          <Type type="quick-draw" disabled />
         </li>
       </ul>
     </div>
