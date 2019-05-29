@@ -69,11 +69,14 @@ export default function createReducer() {
     function() {
       if (isLoading) {
         const data = JSON.parse(localStorage.getItem("little-printers"));
-        dispatch({ type: "hydrate", state: data });
+        if (data) {
+          dispatch({ type: "hydrate", state: data });
+        }
+
         setIsLoading(false);
 
         // TODO: This shouldn't go here
-        const printKeys = Object.entries(data.printKeys);
+        const printKeys = Object.entries(state.printKeys);
         console.log("Fetching status for printKeys", printKeys);
         printKeys.forEach(([id, { url }]) => getDeviceInfo(dispatch, id, url));
       } else {
