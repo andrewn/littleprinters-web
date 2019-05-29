@@ -6,7 +6,6 @@ import * as actions from "./actions";
 
 import { Header, HeaderProvider, Splash } from "./shared";
 
-import Preview from "./Preview";
 import Routes from "./Routes";
 
 import "./global.css";
@@ -45,29 +44,6 @@ function App() {
       </ErrorCatcher>
     </HeaderProvider>
   );
-
-  // const [message, setMessage] = useState("This is a message!");
-  // const [image, setImage] = useState();
-  // const ref = React.createRef();
-
-  // const doIt = async function() {
-  //   const image = await generateImageFromPreview(ref);
-  //   setImage(URL.createObjectURL(image));
-  //   sendImage(image);
-  //   // sendHtml(message);
-  // };
-
-  // return (
-  //   <div>
-  //     <textarea
-  //       value={message}
-  //       onChange={evt => setMessage(evt.target.value)}
-  //     />
-  //     <Preview ref={ref} text={message} />
-  //     {image && <img src={image} alt="" />}
-  //     <button onClick={doIt}>Go</button>
-  //   </div>
-  // );
 }
 
 export default App;

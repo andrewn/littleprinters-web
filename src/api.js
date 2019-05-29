@@ -1,5 +1,3 @@
-import domtoimage from "dom-to-image";
-
 const http = fetch; //(...params) => console.log("HTTP", ...params);
 
 const nord = {
@@ -40,13 +38,6 @@ function sendImage(image) {
     },
     body: image
   });
-}
-
-async function generateImageFromPreview(ref) {
-  if (ref.current) {
-    console.log(ref.current);
-    return await domtoimage.toBlob(ref.current);
-  }
 }
 
 export async function getDeviceStatus(url) {
