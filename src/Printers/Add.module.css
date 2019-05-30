@@ -9,23 +9,23 @@
   font-size: 1.5rem;
 }
 
-form {
+.container form {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: auto;
 }
 
-label {
+.container label {
   display: flex;
   flex-direction: column;
 }
 
-label span {
+.container label span {
   padding-bottom: 2rem;
 }
 
-input {
+.container input {
   height: 46px;
 
   border: 2px solid #000;
@@ -35,7 +35,7 @@ input {
   text-align: center;
 }
 
-button {
+.container button {
   background: transparent;
   border: none;
 
