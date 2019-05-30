@@ -9,7 +9,6 @@
   display: flex;
   justify-content: center;
 
-  margin-top: 76px;
-  padding: 76px 0;
+  padding: 60px 0;
   border-top: 6px dotted #000;
 }

@@ -5,6 +5,8 @@
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-areas: "image info info detail" "image info info ." "image . message message";
 
+  margin-bottom: 50px;
+
   background-image: linear-gradient(-180deg, #fbfbfb 0%, #f1f1f1 100%);
 
   box-shadow: 3px 12px 0 -6px #cecece;
