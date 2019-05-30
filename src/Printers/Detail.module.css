@@ -1,0 +1,22 @@
+.Detail {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.section {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.url::before {
+  content: "👉";
+  display: inline-block;
+  padding-right: 1rem;
+}
+
+.url::after {
+  content: "👈";
+  display: inline-block;
+  padding-left: 1rem;
+}

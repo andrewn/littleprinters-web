@@ -7,16 +7,19 @@ import * as styles from "./styles.module.css";
 export default function Button({
   className,
   to,
+  external = false,
   type = Button.Types.Secondary,
   ...props
 }) {
   const classes = classnames(styles.Button, styles[type], className);
 
-  return to ? (
-    <Link className={classes} to={to} {...props} />
-  ) : (
-    <span className={classes} {...props} />
-  );
+  if (to && external) {
+    return <a className={classes} href={to} {...props} />;
+  } else if (to) {
+    return <Link className={classes} to={to} {...props} />;
+  }
+
+  return <span className={classes} {...props} />;
 }
 
 Button.Types = {
