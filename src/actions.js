@@ -13,8 +13,31 @@ function hash(str) {
   return hash;
 }
 
-export async function addPrinter(dispatch, url) {
-  console.log("addPrinter", url);
+export function sanitisePrintKeyToUrl(maybeUrl = "") {
+  const trimmed = maybeUrl.trim();
+  const needsProtocol = /^device\.li/.test(trimmed);
+  let url = trimmed;
+
+  if (needsProtocol) {
+    url = `https://${trimmed}`;
+  }
+
+  try {
+    new URL(url); // throws if not valid
+    return url;
+  } catch (err) {
+    return null;
+  }
+}
+
+export async function addPrinter(dispatch, maybeUrl) {
+  const url = sanitisePrintKeyToUrl(maybeUrl);
+
+  // TODO: Show error message
+  if (url == null) {
+    return;
+  }
+
   const id = hash(url);
   const info = {
     url,
@@ -23,6 +46,7 @@ export async function addPrinter(dispatch, url) {
 
   dispatch({ type: "add", id, info });
 
+  // TODO: Get device info first to check if valid key
   getDeviceInfo(dispatch, id, url);
 }
 
