@@ -14,7 +14,7 @@ body {
 .with-background {
   background-image: url("./receipt@3x.png");
   background-repeat: repeat;
-  background-size: 17px 17px;
+  background-size: 5px 5px;
 }
 
 .is-stretched {
