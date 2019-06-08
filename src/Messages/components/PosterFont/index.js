@@ -13,7 +13,7 @@ async function generateImageFromPreview(ref) {
 }
 
 export default function({ onSend, owner }) {
-  const [message, setMessage] = React.useState("This is a message!");
+  const [message, setMessage] = React.useState("");
   const ref = React.createRef();
 
   const render = async function() {
