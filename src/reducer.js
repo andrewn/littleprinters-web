@@ -40,6 +40,18 @@ function reducer(state, action) {
           [action.id]: action.info
         }
       };
+    case "delete":
+      const printers = { ...state.printers };
+      delete printers[action.id];
+
+      const printKeys = { ...state.printKeys };
+      delete printKeys[action.id];
+
+      return {
+        ...state,
+        printers,
+        printKeys
+      };
     case "status":
       return {
         ...state,
@@ -81,7 +93,7 @@ export default function createReducer() {
   const [state, dispatch] = useReducer(reducer, emptyState);
 
   useEffect(
-    function() {
+    function () {
       if (isLoading) {
         const data = JSON.parse(localStorage.getItem("little-printers"));
         if (data) {

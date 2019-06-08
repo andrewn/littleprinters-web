@@ -68,3 +68,8 @@ export async function sendImageToPrinter(dispatch, printer, image) {
     dispatch({ type: "failure", printer, image });
   }
 }
+
+export async function deletePrinter(dispatch, id) {
+  console.log("deletePrinter", id);
+  dispatch({ type: "delete", id });
+}
