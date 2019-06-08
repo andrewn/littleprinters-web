@@ -5,10 +5,13 @@
   padding: 18px;
 }
 
+.Printers {
+  border-bottom: 6px dotted #000;
+}
+
 .Add {
   display: flex;
   justify-content: center;
 
   padding: 60px 0;
-  border-top: 6px dotted #000;
 }
