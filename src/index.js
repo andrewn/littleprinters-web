@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
+import "pepjs";
+
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 

@@ -14,7 +14,11 @@ export default function List({ state: { printers }, dispatch }) {
         {Object.entries(printers).map(function([id, printer]) {
           return (
             <li key={id}>
-              <Printer id={id} {...printer} />
+              <Printer
+                id={id}
+                {...printer}
+                onDelete={() => console.log("Delete")}
+              />
             </li>
           );
         })}

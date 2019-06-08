@@ -52,6 +52,42 @@
   height: 100%;
 }
 
+.delete {
+  grid-area: image;
+
+  display: none;
+}
+
+/*.Printer:hover .delete,*/
+.showDelete .delete {
+  display: block;
+}
+
+.delete button {
+  cursor: pointer;
+
+  width: 40px;
+  height: 40px;
+  background: url("./delete.png") no-repeat center center;
+  background-size: contain;
+
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+  .delete button {
+    background-image: url("./delete@2x.png");
+  }
+}
+
+@media (-webkit-min-device-pixel-ratio: 3) {
+  .delete button {
+    background-image: url("./delete@3x.png");
+  }
+}
+
 .message {
   grid-area: message;
 
