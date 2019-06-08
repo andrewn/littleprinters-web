@@ -47,7 +47,7 @@ export async function addPrinter(dispatch, maybeUrl) {
   dispatch({ type: "add", id, info });
 
   // TODO: Get device info first to check if valid key
-  getDeviceInfo(dispatch, id, url);
+  await getDeviceInfo(dispatch, id, url);
 }
 
 // TODO: Should pass in id and fetch url from state

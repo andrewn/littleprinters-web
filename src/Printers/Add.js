@@ -5,13 +5,14 @@ import { addPrinter } from "../actions";
 
 import styles from "./Add.module.css";
 
-export default function Add({ dispatch, backTo }) {
+export default function Add({ dispatch, navigate }) {
   const [printKey, setPrintKey] = React.useState("");
   const canSubmit = printKey !== "";
 
-  function handleSubmit(evt) {
+  async function handleSubmit(evt) {
     evt.preventDefault();
-    addPrinter(dispatch, printKey);
+    await addPrinter(dispatch, printKey);
+    navigate('..');
   }
 
   return (
