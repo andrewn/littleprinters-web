@@ -14,6 +14,8 @@ export default function Button({
   const classes = classnames(styles.Button, styles[type], className);
 
   if (to && external) {
+    // Anchor will have content through props.children spread into it
+    // eslint-disable-next-line jsx-a11y/anchor-has-content
     return <a className={classes} href={to} {...props} />;
   } else if (to) {
     return <Link className={classes} to={to} {...props} />;
