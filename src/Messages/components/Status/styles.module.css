@@ -1,0 +1,17 @@
+.Status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 62px);
+}
+
+.printer {
+  height: 80px;
+  margin-bottom: 16px;
+}
+
+.icon {
+  height: 38px;
+  margin-bottom: 16px;
+}

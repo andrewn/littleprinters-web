@@ -66,6 +66,7 @@ export async function sendImageToPrinter(dispatch, printer, image) {
   } catch (err) {
     console.error(err);
     dispatch({ type: "failure", printer, image });
+    throw err;
   }
 }
 
