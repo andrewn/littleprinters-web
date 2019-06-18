@@ -8,15 +8,19 @@ import useTime from "./useTime";
 
 async function generateImageFromPreview(ref) {
   if (ref.current) {
-    return await domtoimage.toBlob(ref.current);
+    try {
+      return await domtoimage.toBlob(ref.current);
+    } catch (err) {
+      console.error("Error generating image", err);
+    }
   }
 }
 
-export default function({ onSend, owner }) {
+export default function ({ onSend, owner }) {
   const [message, setMessage] = React.useState("");
   const ref = React.createRef();
 
-  const render = async function() {
+  const render = async function () {
     const image = await generateImageFromPreview(ref);
     onSend(image);
   };
