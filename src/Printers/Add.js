@@ -3,10 +3,12 @@ import * as React from "react";
 import { Button, HeaderValues } from "../shared";
 import { addPrinter } from "../actions";
 
+import useQueryStringParam from "./useQueryStringParam";
 import styles from "./Add.module.css";
 
 export default function Add({ dispatch, navigate }) {
-  const [printKey, setPrintKey] = React.useState("");
+  const urlProvidedKey = useQueryStringParam('key');
+  const [printKey, setPrintKey] = React.useState(urlProvidedKey || '');
   const canSubmit = printKey !== "";
 
   async function handleSubmit(evt) {
