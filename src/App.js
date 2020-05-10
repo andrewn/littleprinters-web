@@ -1,7 +1,7 @@
 import React from "react";
 import { isRedirect } from "@reach/router";
 
-import createReducer from "./reducer";
+import useAppReducer from "./reducer";
 
 import { HeaderProvider, Splash } from "./shared";
 
@@ -24,7 +24,7 @@ class ErrorCatcher extends React.Component {
 }
 
 function App() {
-  const [state, dispatch] = createReducer();
+  const [state, dispatch] = useAppReducer();
 
   if (state.isLoading) {
     return <Splash />;
