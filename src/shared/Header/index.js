@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Link, history } from "@reach/router";
 
 import styles from "./styles.module.css";
 
@@ -22,7 +21,7 @@ export function HeaderValues(props) {
 export function HeaderValuesInner({ setHeader, hasBack, title }) {
   React.useEffect(() => {
     setHeader({ hasBack, title });
-  }, [hasBack, title]);
+  }, [hasBack, setHeader, title]);
 
   return null;
 }
@@ -32,7 +31,7 @@ export function HeaderProvider({ children }) {
 
   const value = {
     ...header,
-    setHeader
+    setHeader,
   };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
