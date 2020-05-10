@@ -25,7 +25,7 @@ import { getDeviceInfo } from "./actions";
 const emptyState = {
   printKeys: {},
   printers: {},
-  networkState: "dormant"
+  networkState: "dormant",
 };
 
 function reducer(state, action) {
@@ -37,8 +37,8 @@ function reducer(state, action) {
         ...state,
         printKeys: {
           ...state.printKeys,
-          [action.id]: action.info
-        }
+          [action.id]: action.info,
+        },
       };
     case "delete":
       const printers = { ...state.printers };
@@ -50,7 +50,7 @@ function reducer(state, action) {
       return {
         ...state,
         printers,
-        printKeys
+        printKeys,
       };
     case "status":
       return {
@@ -59,24 +59,24 @@ function reducer(state, action) {
           ...state.printKeys,
           [action.id]: {
             ...state.printKeys[action.id],
-            lastUpdatedAt: new Date().toISOString()
-          }
+            lastUpdatedAt: new Date().toISOString(),
+          },
         },
         printers: {
           ...state.printers,
-          [action.id]: action.printer
-        }
+          [action.id]: action.printer,
+        },
       };
     case "sending":
       return {
         ...state,
-        networkState: "sending"
+        networkState: "sending",
       };
     case "success":
     case "failed":
       return {
         ...state,
-        networkState: "dormant"
+        networkState: "dormant",
       };
     default:
       console.warn("Unhandled action", action);
@@ -88,7 +88,7 @@ export function getPrinterById(state, id) {
   return { ...state.printers[id], ...state.printKeys[id] };
 }
 
-export default function createReducer() {
+export default function useAppReducer() {
   const [isLoading, setIsLoading] = useState(true);
   const [state, dispatch] = useReducer(reducer, emptyState);
 
@@ -116,7 +116,7 @@ export default function createReducer() {
         localStorage.setItem("little-printers", serialised);
       }
     },
-    [state]
+    [isLoading, state]
   );
 
   return [{ ...state, isLoading }, dispatch];
