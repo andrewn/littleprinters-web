@@ -2,7 +2,7 @@
 
 This is a port of [Nord Projects's](https://nordprojects.co/) amazing [Little Printers iOS app](https://github.com/nordprojects/littleprinters-ios-app) to the web. [Read more about the project.](https://nordprojects.co/projects/littleprinters/)
 
-The web app is deployed at https://littleprinters.netlify.com/.
+The web app is deployed at https://littleprinters.ink/.
 
 It's a very rough implementation that needs some UI polish.
 
