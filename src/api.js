@@ -45,6 +45,7 @@ export function sendImage({ url, image, sender = null }) {
 
 export async function getDeviceStatus(url) {
   const response = await http(url);
+  if(!response.ok) return null;
   const data = await response.json();
   return data;
 }

@@ -34,7 +34,7 @@ export async function addPrinter(dispatch, maybeUrl) {
   const url = sanitisePrintKeyToUrl(maybeUrl);
 
   if (url == null) {
-    throw new Error("The supplied Printer Key is invalid.");    
+    throw new Error("The supplied Printer Key is invalid.");
   }
 
   const id = hash(url);
@@ -42,18 +42,22 @@ export async function addPrinter(dispatch, maybeUrl) {
     url,
     lastUpdatedAt: null
   };
-
+  
+  // Get device info first to check if valid key
+  const deviceInfo = await getDeviceInfo(dispatch, id, url);
+  if(!deviceInfo){
+    throw new Error("Device information couldn't be retrieved.");
+  }
   dispatch({ type: "add", id, info });
-
-  // TODO: Get device info first to check if valid key
-  await getDeviceInfo(dispatch, id, url);
 }
 
 // TODO: Should pass in id and fetch url from state
 export async function getDeviceInfo(dispatch, id, url) {
   const printer = await api.getDeviceStatus(url);
+  if(!printer) return null;
   console.log("getDeviceInfo", printer);
   dispatch({ type: "status", id, printer });
+  return printer;
 }
 
 export async function sendImageToPrinter(dispatch, printer, image, sender = null) {
