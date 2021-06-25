@@ -6,7 +6,7 @@ import styles from "./Header.module.css";
 export default function({ time, owner }) {
   return (
     <div className={styles.header}>
-      {format(time, "hh:mm")} | {format(time, `d–MMM-YYYY`)} | {owner}
+      {format(time, "hh:mm")} | {format(time, `d–MMM-yyyy`)} | {owner}
     </div>
   );
 }
