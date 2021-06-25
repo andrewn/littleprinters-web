@@ -19,13 +19,14 @@ const State = {
 export default function Compose({ dispatch, state, printerId, messageType }) {
   const [uiState, setUiState] = React.useState(State.Compose);
   const printer = getPrinterById(state, printerId);
+  const sender = printer.owner; // TODO allow user to choose
 
   console.log('uiState', uiState);
 
   async function handleSend(image) {
     setUiState(State.Send);
     try {
-      await sendImageToPrinter(dispatch, printer, image);
+      await sendImageToPrinter(dispatch, printer, image, sender);
       setUiState(State.Success);
     } catch (err) {
       setUiState(State.Fail);

@@ -57,11 +57,11 @@ export async function getDeviceInfo(dispatch, id, url) {
   dispatch({ type: "status", id, printer });
 }
 
-export async function sendImageToPrinter(dispatch, printer, image) {
+export async function sendImageToPrinter(dispatch, printer, image, sender = null) {
   console.log("sendImageToPrinter", printer, image);
   dispatch({ type: "sending", printer, image });
   try {
-    await api.sendImage({ image, url: printer.url });
+    await api.sendImage({ image, url: printer.url, sender: sender });
     dispatch({ type: "success", printer, image });
   } catch (err) {
     console.error(err);

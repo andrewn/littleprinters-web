@@ -31,8 +31,9 @@ const http = fetch;
 //   });
 // }
 
-export function sendImage({ url, image }) {
-  return http(url, {
+export function sendImage({ url, image, sender = null }) {
+  const composedURL = sender ? `${url}?from=${sender}` : url;
+  return http(composedURL, {
     method: "POST",
     mode: "cors",
     headers: {
