@@ -33,9 +33,8 @@ export function sanitisePrintKeyToUrl(maybeUrl = "") {
 export async function addPrinter(dispatch, maybeUrl) {
   const url = sanitisePrintKeyToUrl(maybeUrl);
 
-  // TODO: Show error message
   if (url == null) {
-    return;
+    throw new Error("The supplied Printer Key is invalid.");    
   }
 
   const id = hash(url);

@@ -13,8 +13,12 @@ export default function Add({ dispatch, navigate }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    await addPrinter(dispatch, printKey);
-    navigate('..');
+    try {
+      await addPrinter(dispatch, printKey);
+      navigate('..');
+    } catch(error){
+      alert(error);
+    }
   }
 
   return (
