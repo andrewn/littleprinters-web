@@ -32,7 +32,7 @@ const http = fetch;
 // }
 
 export function sendImage({ url, image }) {
-  http(url, {
+  return http(url, {
     method: "POST",
     mode: "cors",
     headers: {
